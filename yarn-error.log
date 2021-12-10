@@ -1,0 +1,45 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn install
+
+PATH: 
+  /home/shahrokh/Desktop/nuxt-repo/4. Handling Data/handling-data-01-static-data/node_modules/.bin:/home/shahrokh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.11.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:71:26)
+
+npm manifest: 
+  {
+    "name": "nuxt-course",
+    "version": "1.0.0",
+    "description": "Nuxt.js course for Udemy",
+    "author": "Maximilian Schwarzmüller",
+    "private": true,
+    "scripts": {
+      "dev": "nuxt",
+      "build": "nuxt build",
+      "start": "nuxt start",
+      "generate": "nuxt generate"
+    },
+    "dependencies": {
+      "nuxt": "^1.0.0"
+    },
+    "devDependencies": {
+      "cross-env": "^5.0.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
