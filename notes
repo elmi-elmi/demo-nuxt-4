@@ -1,0 +1,108 @@
+-----------------------------------------------------------------------
+1 - Getting start ✔️
+-----------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------
+2 - Pages, Routing, Views ✔️
+-----------------------------------------------------------------------
+
+validate(data){return data.params.id}
+--> NuxtJS execute it before rendering a route.
+
+nuxt-router
+nuxt-child
+
+layout: error.vue default error (reserved name)
+
+In layouts directory (if it does not exist you can create it) make default.vue
+
+attention********* move layouts folder from .nuxt then  stop terminal and again use yarn dev command
+
+
+main css  for all pages (wide page without margin)
+
+1 - create assets/styles/main.css
+2 - in nuxt.config.js change css:[]:
+css: [
+    '~/assets/styles/main.css'
+  ],
+
+
+
+-----------------------------------------------------------------------
+3. Project - Pages, Routing & Views
+-----------------------------------------------------------------------
+
+   ****** error - problem - image style background image *****
+
+1 - You should add at early first _nuxt if you want pass address of a local image with props.
+
+2 - import image
+
+example:
+
+      <PostPreview
+      thumbnail='_nuxt/assets/images/coding_languages.png'
+      />
+
+      <div
+      :style="{backgroundImage:`url(${thumbnail} )`}">
+      </div>
+
+      <script>
+        '@/assets/images/coding2.jpeg'
+      <script/>
+
+
+video 8:
+        spacial css styling for highligh nuxt-link:
+
+            nuxt-link-active
+
+$attrs :
+https://v3.vuejs.org/guide/migration/attrs-includes-class-style.html#_3-x-behavior
+
+
+
+-----------------------------------------------------------------------
+4. Handling Data
+-----------------------------------------------------------------------
+3:
+life cycle (server & client)
+
+create
+
+asyncData(){}
+
+- asyncData execute on server (Nuxt only call this methods in pages directory)
+
+- You should not use data() if use this method.
+    becuase data() execute on client so it would override whatever you return with data.
+- ****"this" does not work in asyncData()*** because asyncData method
+    render on server before vue component  is           created.
+-
+
+4-5:
+asyncData(context, callback){}
+
+
+8: promise approach (replace callback) & hande error
+
+9: vuex (do not need install)
+
+11: fetch -- nuxtServerInit
+
+can be able use "fetch" replace  "asyncData"
+
+nuxtServerInit is a special method in vuex.
+
+
+
+-----------------------------------------------------------------------
+5. Connecting our App to the Backend
+-----------------------------------------------------------------------
+
+
+
