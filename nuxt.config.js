@@ -23,17 +23,17 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#3B8070' },
+  loadingIndicator:{name:'circle', color:'#fa923f'},
 
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css:['~assets/styles/main.css'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
+  plugins: ['~plugins/core-componets.js', '~plugins/date-filter.js'
   ],
 
   /*
@@ -52,5 +52,12 @@ module.exports = {
     extend(config, ctx) {
 
     }
+  },
+
+    env:{ baseUrl:process.env.BASE_URL||'https://fir-nuxt-blog-2-default-rtdb.firebaseio.com'},
+
+  transition:{
+    name:'fade',
+    mode:'out-in'
   }
 }

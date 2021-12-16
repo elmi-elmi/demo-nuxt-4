@@ -28,7 +28,7 @@ const createStore = () => {
           .catch(e=>console.log(e))
       },
       addPost(vuexContext, postData) {
-        return axios.post('https://fir-nuxt-blog-2-default-rtdb.firebaseio.com/posts.json', {
+        return axios.post(process.env.baseUrl+'posts.json', {
           ...postData, updatedDate: new Date()
         })
           .then(res=>{
@@ -37,7 +37,7 @@ const createStore = () => {
           .catch(e => console.log(e))
       },
       nuxtServerInit(vuexContext, context) {
-        return axios.get('https://fir-nuxt-blog-2-default-rtdb.firebaseio.com/posts.json')
+        return axios.get(process.env.baseUrl+'/posts.json')
           .then(res => {
             const postsArray = [];
             for (const key in res.data) {
