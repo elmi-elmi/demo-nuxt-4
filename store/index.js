@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-import axios from 'axios';
+// import axios from 'axios';
 import posts from "~/pages/posts";
 
 const createStore = () => {
@@ -21,27 +21,27 @@ const createStore = () => {
     },
     actions: {
       editPost(vuexContext, editedPost){
-        return axios.put('https://fir-nuxt-blog-2-default-rtdb.firebaseio.com/posts/' + editedPost.id + '.json',editedPost)
+        return this.$axios.$put('https://fir-nuxt-blog-2-default-rtdb.firebaseio.com/posts/' + editedPost.id + '.json',editedPost)
           .then(res=>{
             vuexContext.commit('editPost', editedPost)
           })
           .catch(e=>console.log(e))
       },
       addPost(vuexContext, postData) {
-        return axios.post(process.env.baseUrl+'posts.json', {
+        return this.$axios.$post(process.env.baseUrl+'posts.json', {
           ...postData, updatedDate: new Date()
         })
-          .then(res=>{
-            vuexContext.commit('addPost', {...postData, id:res.data.name})
+          .then(data=>{
+            vuexContext.commit('addPost', {...postData, id:data.name})
           })
           .catch(e => console.log(e))
       },
       nuxtServerInit(vuexContext, context) {
-        return axios.get(process.env.baseUrl+'/posts.json')
-          .then(res => {
+        return context.app.$axios.$get(process.env.baseUrl+'/posts.json')
+          .then(data => {
             const postsArray = [];
-            for (const key in res.data) {
-              postsArray.push({...res.data[key], id: key});
+            for (const key in data) {
+              postsArray.push({...data[key], id: key});
             }
             vuexContext.commit('setPosts', postsArray)
 

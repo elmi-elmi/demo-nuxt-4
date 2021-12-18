@@ -15,14 +15,14 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
 
   asyncData(ctx) {
-    return axios.get('https://fir-nuxt-blog-2-default-rtdb.firebaseio.com/posts/' + ctx.params.id + '.json')
-      .then(res => {
-        return {loadedPost: res.data}
+    return ctx.app.$axios.$get('/posts/' + ctx.params.id + '.json')
+      .then(data => {
+        return {loadedPost: data}
       })
       .catch(e => ctx.error(e))
   },
