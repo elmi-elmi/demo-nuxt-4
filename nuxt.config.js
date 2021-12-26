@@ -39,9 +39,9 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+  modules: ['@nuxtjs/axios'],
 
+  axios:{baseURL:'https://fir-nuxt-blog-2-default-rtdb.firebaseio.com', credential:false},
   /*
   ** Build configuration
   */
@@ -52,5 +52,8 @@ module.exports = {
     extend(config, ctx) {
 
     }
-  }
+  },
+  env:{
+    fbAPIKey:'AIzaSyB3492OY4jn0Uh8MNnHdVbc7cmScg7iJYY'
+  },
 }
