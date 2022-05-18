@@ -2,6 +2,8 @@
 
 > Nuxt.js course for Udemy
 
+https://nuxt-mxm-elmi-elmi.netlify.app/
+
 ## Build Setup
 
 ``` bash
