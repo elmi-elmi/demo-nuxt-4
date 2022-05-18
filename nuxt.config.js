@@ -68,6 +68,7 @@ module.exports = {
 
   // router:{
   //   middleware:'log'
-  // }
+  // },
+  target:'static'
 
 }
